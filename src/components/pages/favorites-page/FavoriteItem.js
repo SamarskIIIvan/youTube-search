@@ -2,11 +2,11 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import getVideos, { setQuery, setQueryName, 
-  setMaxResults, setSortBy } from '../../redux/search/actions';
-import { setShowModalEdit, setHeartFavorites } from '../../redux/appearance/actions';
+  setMaxResults, setSortBy } from '../../../redux/search/actions';
+import { setShowModalEdit, setHeartFavorites } from '../../../redux/appearance/actions';
 import { setQueryF, setQueryNameF, 
   setMaxResultsF, setSortByF, setSelectedIdF,
-  deleteQueryInF } from '../../redux/favorites/actions';
+  deleteQueryInF } from '../../../redux/favorites/actions';
 import './favoriteItem.css';
 
 import { useHistory } from "react-router-dom";

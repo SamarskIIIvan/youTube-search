@@ -2,6 +2,12 @@
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
+  padding: 0 200px;
+}
+@media screen and (max-width: 320px){
+  .layout{
+    padding: 0;
+  }
 }
 
 .layout__total-results {
@@ -13,7 +19,7 @@
   display: inline-block;
   width: 24px;
   height: 24px;
-  background: url(../../img/list_active.png);
+  background: url(../../../assets/images/list_active.png);
   opacity: 0.3;
   margin: 5px;
   vertical-align: middle;
@@ -27,7 +33,7 @@
   display: inline-block;
   width: 24px;
   height: 24px;
-  background: url(../../img/grid_active.png);
+  background: url(../../../assets/images/grid_active.png);
   opacity: 0.3;
   margin: 5px;
   vertical-align: middle;

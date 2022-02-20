@@ -1,10 +1,18 @@
+
 .search-page__title {
   text-align: center;
   margin-bottom: 40px;
 }
 
+
 .search-page__flex-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 0 200px;
+}
+@media screen and (max-width: 320px){
+  .search-page__flex-container{
+    padding: 0;
+  }
 }

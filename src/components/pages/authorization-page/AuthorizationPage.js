@@ -2,9 +2,9 @@ import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import { Form, InputGroup } from 'react-bootstrap'; 
 import BtnLogin from './BtnLogin';
-import logo from '../../img/sibdev-logo.png';
+import logo from '../../../assets/images/sibdev-logo.png';
 import './authorizationPage.css';
-import { setUserLogin, setUserPW } from '../../redux/user/actions';
+import { setUserLogin, setUserPW } from '../../../redux/user/actions';
 
 const AuthorizationPage = ({ login, password, setUserLogin, setUserPW }) => {
   

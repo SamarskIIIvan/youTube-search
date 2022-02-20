@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, InputGroup } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import getVideos, { setQuery } from '../../redux/search/actions';
-import { setShowModalAdd, setHeartFavorites } from '../../redux/appearance/actions';
+import getVideos, { setQuery } from '../../../redux/search/actions';
+import { setShowModalAdd, setHeartFavorites } from '../../../redux/appearance/actions';
 import './searchForm.css';
 
 const SearchForm = ({ getVideos, setQuery, data, sortBy,

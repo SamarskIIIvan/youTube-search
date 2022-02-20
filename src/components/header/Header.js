@@ -7,12 +7,12 @@ import {setUserLogin,
 import {setToken} from '../../redux/token/actions';
 import {setQuery, setMaxResults, 
   setQueryName, setSortBy, setData} from '../../redux/search/actions';
-import logo from '../../img/sibdev-logo.png';
+import logo from '../../assets/images/sibdev-logo.png';
 import './header.css';
 
 const Header = ({token, setUserLogin, setUserPW, setToken, setIsDataFFromLS, 
   setQuery, setMaxResults, setQueryName, setSortBy, setData}) => {
-  const handelClick = () => {
+  const handleClick = () => {
     setUserLogin('');
     setUserPW('');
     setToken('', 0);
@@ -46,7 +46,7 @@ const Header = ({token, setUserLogin, setUserPW, setToken, setIsDataFFromLS,
       <Button 
         className='header__item-exit' 
         variant='outline-primary' 
-        onClick={handelClick}>Выйти</Button>
+        onClick={handleClick}>Выйти</Button>
       </div>
     </header>) : (null)
   )

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import ProtectedRoute from '../components/protectedRoute/ProtectedRoute';
+import ProtectedRoute from '../protectedRoute/ProtectedRoute';
 import AuthorizationPage from './authorization-page/AuthorizationPage';
 import SearchPage from './search-page/SearchPage';
 import FavoritesPage from './favorites-page/FavoritesPage';

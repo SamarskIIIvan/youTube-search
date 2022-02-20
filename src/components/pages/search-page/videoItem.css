@@ -4,6 +4,11 @@
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
+@media screen and (max-width: 320px){
+  .videoItem_list{
+    display: grid;
+  }
+}
 
 .videoItem_list:first-child {
   margin-top: 20px;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setLayoutVideos } from '../../redux/appearance/actions';
+import { setLayoutVideos } from '../../../redux/appearance/actions';
 import './itesLayout.css';
 
 const ItemsLayout = ({ query, totalResults, setLayoutVideos, layout }) => {

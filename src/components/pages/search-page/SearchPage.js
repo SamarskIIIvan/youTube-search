@@ -1,15 +1,15 @@
 import React, {useEffect, useRef} from 'react';
 import { connect } from 'react-redux';
-import { setQuery, setMaxResults, setQueryName, setSortBy } from '../../redux/search/actions';
+import { setQuery, setMaxResults, setQueryName, setSortBy } from '../../../redux/search/actions';
 import SearchForm from './SearchForm';
 import ItemsLayout from './ItemsLayout';
 import VideoItem from './VideoItem';
 import ModalAddToFavorites from './ModalAddToFavorites';
-import { setShowModalAdd } from '../../redux/appearance/actions';
+import { setShowModalAdd } from '../../../redux/appearance/actions';
 import './searchPage.css';
 
-import {setArrDataFInF} from '../../redux/favorites/actions';
-import {setIsDataFFromLS} from '../../redux/user/actions';
+import {setArrDataFInF} from '../../../redux/favorites/actions';
+import {setIsDataFFromLS} from '../../../redux/user/actions';
 
 const SearchPage = ({ login, data, dataF, setArrDataFInF, 
   isDataFFromLS, setIsDataFFromLS, viewCountArr }) => {

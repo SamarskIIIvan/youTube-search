@@ -1,7 +1,15 @@
 .header {
+  padding:0 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+}
+@media screen and (max-width: 795px){
+.header{
+  padding: 0;
+  justify-content: center;
+}
 }
 
 .header__logo {
@@ -20,6 +28,17 @@
   border: none;
 }
 
+@media screen and (max-width: 393px){
+  .header__item-search,
+  .header__item-favorites,
+  .header__item-exit{
+    font-size: 10px;
+
+  }
+}
+
+
+
 .header__item-search:hover,
 .header__item-favorites:hover,
 .header__item-exit:hover {
@@ -27,6 +46,7 @@
   background-color: inherit;
   color: #1390E5;
 }
+
 
 .header__item-search_active,
 .header__item-favorites_active {

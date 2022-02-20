@@ -15,6 +15,12 @@ body {
   border-radius: 5px; 
   text-align: center;
 }
+@media screen and (max-width: 320px){
+  .authorization{
+    width: 320px;
+    height: 568px;
+  }
+}
 
 .logo {
   transform: scale(0.8);
@@ -36,12 +42,12 @@ body {
 }
 
 .authorization__pw-input-vs_password {
-  background: url(../../img/eye-off-gray.png) no-repeat center;
+  background: url(../../../assets/images/eye-off-gray.png) no-repeat center;
   width: 40px;
 }
 
 .authorization__pw-input-vs_text {
-  background: url(../../img/eye.png) no-repeat center;
+  background: url(../../../assets/images/eye.png) no-repeat center;
   width: 40px;
 }
 
@@ -50,5 +56,3 @@ body {
   height: 52px;
   margin-top: 50px;
 }
-
-

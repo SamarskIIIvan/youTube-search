@@ -1,10 +1,10 @@
 export const user = [
   {
-    login: 'user1',
-    password: 'pw1'
+    login: 'user',
+    password: 'qwe'
   },
   {
-    login: 'user2',
-    password: 'pw2'
+    login: 'user1',
+    password: 'ewq'
   }
 ];

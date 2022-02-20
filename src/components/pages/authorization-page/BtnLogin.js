@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setUserLogin, setUserPW } from '../../redux/user/actions';
-import { setToken } from '../../redux/token/actions';
+import { setUserLogin, setUserPW } from '../../../redux/user/actions';
+import { setToken } from '../../../redux/token/actions';
 import GoogleLogin from 'react-google-login';
-import { gapiClient } from '../../config';
+import { gapiClient } from '../../../config';
 import Button from 'react-bootstrap/Button';
-import userValidation from '../../mock-server/userValidation';
+import userValidation from '../../../mock-server/userValidation';
 import { Redirect } from 'react-router-dom';
 
 const BtnLogin = ({ login, password, 

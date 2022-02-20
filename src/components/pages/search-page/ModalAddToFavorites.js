@@ -1,22 +1,25 @@
 import React, { useEffect } from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { setShowModalAdd, setShowModalEdit } from '../../redux/appearance/actions';
+import { setShowModalAdd, setHeartFavorites } from '../../../redux/appearance/actions';
 import { setQueryF, setMaxResultsF, 
-  setQueryNameF, setSortByF, editQueryInF } from '../../redux/favorites/actions';
-import './modalEditFavorite.css';
+  setQueryNameF, setSortByF, addQueryToF } from '../../../redux/favorites/actions';
+import './modalAddToFavorites.css';
 
-const ModalAddToFavorites = ({ isShownEdit, setShowModalEdit,
-    queryF, setQueryF, maxResultsF, setMaxResultsF, 
-    nameF, setQueryNameF, sortByF, setSortByF, selectedId, editQueryInF }) => {
+const ModalAddToFavorites = ({ isShownAdd, setShowModalAdd, login,
+    query, name, sortBy, maxResults, queryF, setQueryF, maxResultsF, 
+    setMaxResultsF, nameF, setQueryNameF, sortByF, setSortByF, 
+    addQueryToF, dataF, setHeartFavorites }) => {
+
+  useEffect(() => {
+    setQueryF(query);
+    setMaxResultsF(maxResults);
+    setQueryNameF(name);
+    setSortByF(sortBy);
+  }, [isShownAdd]);
 
   const handleHide = () => {
-    setShowModalEdit(false);
-  }
-
-  const handleChangeQuery = (e) => {
-    const value = e.target.value;
-    setQueryF(value);
+    setShowModalAdd(false);
   }
 
   const handleChangeName = (e) => {
@@ -36,35 +39,35 @@ const ModalAddToFavorites = ({ isShownEdit, setShowModalEdit,
     setMaxResultsF(value);
   }
 
-  const handleEditF = (e) => {
-    
+  const handleAddF = (e) => {
     if (nameF) {
-      editQueryInF(selectedId, {
-        queryF,
+      addQueryToF({queryF,
         maxResultsF,
         nameF,
-        sortByF
-      });
-      e.preventDefault();
-      setShowModalEdit(false);
+        sortByF});
+      setShowModalAdd(false);
+      setHeartFavorites('marked');      
+      e.preventDefault();   
     }
   }
 
+  
+
   return (
     <Modal 
-      className='modalEdit'
-      show={isShownEdit} 
+      className='modalAdd' 
+      show={isShownAdd} 
       onHide={handleHide}>
       <Modal.Header>
         <Modal.Title>Сохранить запрос</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form >
+        <Form>
           <Form.Group>
             <Form.Label>Запрос</Form.Label>
             <Form.Control
-              value={queryF}
-              onChange={handleChangeQuery}/>
+              disabled
+              value={queryF}/>
           </Form.Group>
           <Form.Group>
             <Form.Label>* Название</Form.Label>
@@ -96,19 +99,19 @@ const ModalAddToFavorites = ({ isShownEdit, setShowModalEdit,
               value={maxResultsF}
               onChange={handleChangeMaxResults}/>
             <Form.Control 
-              className='modalEdit__input-number'
+              className='modalAdd__input-number'
               type='number' 
               min='0' max='50'
               value={maxResultsF}
               onChange={handleChangeMaxResults}/>
           </Form.Group>
-          <Button
-            className='modalEdit__btn-no-change' 
-            onClick={handleHide}>Не изменять</Button>
           <Button 
-            className='modalEdit__btn-change'
+            className='modalAdd__btn-no-save' 
+            onClick={handleHide}>Не сохранять</Button>
+          <Button 
+            className='modalAdd__btn-save' 
             type='submit' 
-            onClick={handleEditF}>Изменить</Button>
+            onClick={handleAddF}>Сохранить</Button>
         </Form>
       </Modal.Body>
     </Modal>
@@ -116,17 +119,19 @@ const ModalAddToFavorites = ({ isShownEdit, setShowModalEdit,
 };
 
 const mapStateToProps = (state) => {
-  const { search: { query, name, maxResults, sortBy },
-    appearance: { isShownEdit },
-    favorites: { queryF, nameF, maxResultsF, sortByF, selectedId }
+  const { user: { login },
+    search: { query, name, maxResults, sortBy },
+    appearance: { isShownAdd },
+    favorites: { queryF, nameF, maxResultsF, sortByF, dataF }
   } = state;
   return ({
-    isShownEdit, query, name, maxResults, sortBy,
-    queryF, nameF, maxResultsF, sortByF, selectedId
+    login,
+    isShownAdd, query, name, maxResults, sortBy,
+    queryF, nameF, maxResultsF, sortByF, dataF
   })
 };
 
 export default connect(mapStateToProps, 
-  {setShowModalAdd, setShowModalEdit, setQueryF, setQueryNameF, 
-    setMaxResultsF, setSortByF, editQueryInF})
+  { setShowModalAdd, setQueryF, setQueryNameF, 
+    setMaxResultsF, setSortByF, addQueryToF, setHeartFavorites })
   (ModalAddToFavorites);
